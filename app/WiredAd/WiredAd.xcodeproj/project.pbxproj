@@ -14,6 +14,7 @@
 		343245F41B6943C4001ACFCA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 343245F31B6943C4001ACFCA /* Images.xcassets */; };
 		343245F71B6943C4001ACFCA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343245F51B6943C4001ACFCA /* LaunchScreen.xib */; };
 		343246031B6943C4001ACFCA /* WiredAdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343246021B6943C4001ACFCA /* WiredAdTests.m */; };
+		3461B57B1B695ED0007F79BB /* AdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3461B57A1B695ED0007F79BB /* AdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		343245FC1B6943C4001ACFCA /* WiredAdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WiredAdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		343246011B6943C4001ACFCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		343246021B6943C4001ACFCA /* WiredAdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WiredAdTests.m; sourceTree = "<group>"; };
+		3461B5791B695ED0007F79BB /* AdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdViewController.h; sourceTree = "<group>"; };
+		3461B57A1B695ED0007F79BB /* AdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				343245EB1B6943C4001ACFCA /* AppDelegate.m */,
 				343245ED1B6943C4001ACFCA /* ViewController.h */,
 				343245EE1B6943C4001ACFCA /* ViewController.m */,
+				3461B5791B695ED0007F79BB /* AdViewController.h */,
+				3461B57A1B695ED0007F79BB /* AdViewController.m */,
 				343245F01B6943C4001ACFCA /* Main.storyboard */,
 				343245F31B6943C4001ACFCA /* Images.xcassets */,
 				343245F51B6943C4001ACFCA /* LaunchScreen.xib */,
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				343245EF1B6943C4001ACFCA /* ViewController.m in Sources */,
+				3461B57B1B695ED0007F79BB /* AdViewController.m in Sources */,
 				343245EC1B6943C4001ACFCA /* AppDelegate.m in Sources */,
 				343245E91B6943C4001ACFCA /* main.m in Sources */,
 			);
@@ -414,6 +420,7 @@
 				343246081B6943C4001ACFCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		343246091B6943C4001ACFCA /* Build configuration list for PBXNativeTarget "WiredAdTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +429,7 @@
 				3432460B1B6943C4001ACFCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
