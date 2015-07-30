@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3428B2611B6A854E00898D51 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 3428B2601B6A854E00898D51 /* web */; };
 		343245E91B6943C4001ACFCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 343245E81B6943C4001ACFCA /* main.m */; };
 		343245EC1B6943C4001ACFCA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 343245EB1B6943C4001ACFCA /* AppDelegate.m */; };
 		343245EF1B6943C4001ACFCA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 343245EE1B6943C4001ACFCA /* ViewController.m */; };
@@ -16,6 +15,7 @@
 		343245F71B6943C4001ACFCA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343245F51B6943C4001ACFCA /* LaunchScreen.xib */; };
 		343246031B6943C4001ACFCA /* WiredAdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343246021B6943C4001ACFCA /* WiredAdTests.m */; };
 		3461B57B1B695ED0007F79BB /* AdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3461B57A1B695ED0007F79BB /* AdViewController.m */; };
+		34C05E5B1B6AA221003D4DCE /* web in Resources */ = {isa = PBXBuildFile; fileRef = 34C05E5A1B6AA221003D4DCE /* web */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +29,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3428B2601B6A854E00898D51 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
 		343245E31B6943C4001ACFCA /* WiredAd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiredAd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		343245E71B6943C4001ACFCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		343245E81B6943C4001ACFCA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -45,6 +44,7 @@
 		343246021B6943C4001ACFCA /* WiredAdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WiredAdTests.m; sourceTree = "<group>"; };
 		3461B5791B695ED0007F79BB /* AdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdViewController.h; sourceTree = "<group>"; };
 		3461B57A1B695ED0007F79BB /* AdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdViewController.m; sourceTree = "<group>"; };
+		34C05E5A1B6AA221003D4DCE /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 		343245E51B6943C4001ACFCA /* WiredAd */ = {
 			isa = PBXGroup;
 			children = (
-				3428B2601B6A854E00898D51 /* web */,
+				34C05E5A1B6AA221003D4DCE /* web */,
 				343245EA1B6943C4001ACFCA /* AppDelegate.h */,
 				343245EB1B6943C4001ACFCA /* AppDelegate.m */,
 				343245ED1B6943C4001ACFCA /* ViewController.h */,
@@ -208,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				343245F21B6943C4001ACFCA /* Main.storyboard in Resources */,
-				3428B2611B6A854E00898D51 /* web in Resources */,
+				34C05E5B1B6AA221003D4DCE /* web in Resources */,
 				343245F71B6943C4001ACFCA /* LaunchScreen.xib in Resources */,
 				343245F41B6943C4001ACFCA /* Images.xcassets in Resources */,
 			);

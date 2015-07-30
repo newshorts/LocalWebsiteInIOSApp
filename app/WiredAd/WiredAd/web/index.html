@@ -31,7 +31,7 @@ and open the template in the editor.
                 width: 768px;
                 height: 1024px;
                 
-                border: 1px dashed red;
+                /*border: 1px dashed red;*/
             }
         </style>
         <script src="js/jquery/jquery.min.js"></script>
@@ -40,9 +40,6 @@ and open the template in the editor.
         <script src="js/hammer/hammer.min.js"></script>
         <script>
             (function() {
-                
-                
-                
                 $(window).load(function() {
                     
                     // config
@@ -166,8 +163,9 @@ and open the template in the editor.
                         ad[0].play();
                     });
                     
-                    ad[0].pause();
+                    ad[0].play();
                     video[0].pause();
+                    
                 });
             })(jQuery);
         </script>
