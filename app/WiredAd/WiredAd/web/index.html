@@ -63,7 +63,6 @@ and open the template in the editor.
                     
                     TweenLite.set(world, {
                         transformStyle: "preserve-3d",
-                        transformOrigin: "0 0 0",
                         perspective: perspective
                     });
                     
@@ -72,12 +71,14 @@ and open the template in the editor.
                         y: 0,
                         z: adStartZ
                     });
+                    ad[0].pause()
                     
                     TweenLite.set(video, {
                         x: 0,
                         y: 0,
                         z: videoStartZ
                     });
+                    video[0].pause();
                     
                     var curMousePos = { x: 0, y: 0 };
                     var adMapZ = { min: ad[0]._gsTransform.z, max: adEndZ };
@@ -113,51 +114,68 @@ and open the template in the editor.
                         });
                     }
                     
+                    function handlePanLeft(evt) {
+                        canPanLeft = false;
+                        TweenLite.to(curMousePos, 1, {
+                            x: worldWidth,
+                            ease: new BezierEasing(.25,.0,.80,1),
+                            onComplete: function() {
+                                ad[0].pause();
+                                setTimeout(function() {
+                                    video[0].play();
+                                }, 100);
+                                
+                            }
+                        });
+                    }
+                    
+                    function handlePanRight(evt) {
+                        
+                        canPanLeft = true;
+                        TweenLite.to(curMousePos, 1, {
+                            x: 0,
+                            ease: new BezierEasing(.25,.0,.80,1),
+                            onComplete: function() {
+                                video[0].pause();
+                                setTimeout(function() {
+                                    ad[0].play();
+                                }, 100);
+                                
+                            }
+                        });
+                    }
+                    
                     
                     // events
                     hammer.on('panleft panright', function(evt) {
-                        console.log(evt)
+                        console.log(evt);
                         
-                        if(evt.type === 'panleft' && !canPanLeft) {
-                            return;
-                        }
-                        
-                        var finishTo = 0;
-                        
-                        if(!evt.isFinal) {
-                            curMousePos.x = evt.distance;
-                        } else {
-                            if(evt.type === 'panleft') {
-                                finishTo = worldWidth;
-                                canPanLeft = false;
+                        if(evt.type === 'panleft' && canPanLeft) {
+                            if(!evt.isFinal) {
+                                curMousePos.x = evt.distance;
                             } else {
-                                canPanLeft = true;
+                                handlePanLeft(evt);
                             }
-                            
-                            TweenLite.to(curMousePos, 1, {
-                                x: finishTo,
-                                ease: new BezierEasing(.25,.0,.80,1)
-                            });
+                        } else if(evt.type === 'panright') {
+                            if(!evt.isFinal) {
+                                curMousePos.x = evt.distance;
+                            } else {
+                                handlePanRight(evt);
+                            }
                         }
                             
                     });
                     
                     TweenLite.ticker.addEventListener("tick", draw);
                     
-                    $(window).on('click tap', function(evt) {
+                    $(window).on('click', function(evt) {
                         console.log(evt);
-                        $('video').each(function(idx) {
-                            console.dir(this);
-                            this.play();
-                        });
+                        $('.ad')[0].play();
                     });
                     
                     hammer.on('tap', function(evt) {
                         console.log(evt);
-                        $('video').each(function(idx) {
-                            console.dir(this);
-                            this.play();
-                        });
+                        $('.ad')[0].play();
                     });
                     
                 });
@@ -168,11 +186,11 @@ and open the template in the editor.
         <div class="container">
             <div class="stage">
                 <div class="world">
-                    <video class="ad" webkit-playsinline muted autoplay>
+                    <video class="ad" webkit-playsinline muted preload loop>
                         <source src="videos/test.mp4" type="video/mp4">
                     </video>
                     
-                    <video class="video" webkit-playsinline muted autoplay>
+                    <video class="video" webkit-playsinline muted preload loop>
                         <source src="videos/test2.mp4" type="video/mp4">
                     </video>
                 </div>

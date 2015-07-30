@@ -15,7 +15,7 @@
 		343245F71B6943C4001ACFCA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343245F51B6943C4001ACFCA /* LaunchScreen.xib */; };
 		343246031B6943C4001ACFCA /* WiredAdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 343246021B6943C4001ACFCA /* WiredAdTests.m */; };
 		3461B57B1B695ED0007F79BB /* AdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3461B57A1B695ED0007F79BB /* AdViewController.m */; };
-		3461B57D1B69B428007F79BB /* web in Resources */ = {isa = PBXBuildFile; fileRef = 3461B57C1B69B428007F79BB /* web */; };
+		3461B5811B69BE0D007F79BB /* web in Resources */ = {isa = PBXBuildFile; fileRef = 3461B5801B69BE0D007F79BB /* web */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 		343246021B6943C4001ACFCA /* WiredAdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WiredAdTests.m; sourceTree = "<group>"; };
 		3461B5791B695ED0007F79BB /* AdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdViewController.h; sourceTree = "<group>"; };
 		3461B57A1B695ED0007F79BB /* AdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdViewController.m; sourceTree = "<group>"; };
-		3461B57C1B69B428007F79BB /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
+		3461B5801B69BE0D007F79BB /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 		343245E51B6943C4001ACFCA /* WiredAd */ = {
 			isa = PBXGroup;
 			children = (
-				3461B57C1B69B428007F79BB /* web */,
+				3461B5801B69BE0D007F79BB /* web */,
 				343245EA1B6943C4001ACFCA /* AppDelegate.h */,
 				343245EB1B6943C4001ACFCA /* AppDelegate.m */,
 				343245ED1B6943C4001ACFCA /* ViewController.h */,
@@ -208,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				343245F21B6943C4001ACFCA /* Main.storyboard in Resources */,
-				3461B57D1B69B428007F79BB /* web in Resources */,
+				3461B5811B69BE0D007F79BB /* web in Resources */,
 				343245F71B6943C4001ACFCA /* LaunchScreen.xib in Resources */,
 				343245F41B6943C4001ACFCA /* Images.xcassets in Resources */,
 			);
