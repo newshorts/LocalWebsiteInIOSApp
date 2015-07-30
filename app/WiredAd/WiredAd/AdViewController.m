@@ -14,12 +14,23 @@
 
 @implementation AdViewController
 
+@synthesize webView, indexPath;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // hide nav controller
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    // allow the view to play inline (should work cause ipad anyway
+    webView.allowsInlineMediaPlayback = YES;
+    
+    // load the url
+    indexPath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"web"];
+    NSURL *url = [NSURL fileURLWithPath:indexPath];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {

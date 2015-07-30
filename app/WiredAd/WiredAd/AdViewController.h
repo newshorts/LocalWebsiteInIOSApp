@@ -10,4 +10,7 @@
 
 @interface AdViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) NSString *indexPath;
+
 @end

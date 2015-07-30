@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/reset.css" />
+        <style>
+            body {
+                width: 768px;
+                height: 1024px;
+                background-color: black;
+            }
+            
+            .world {
+                position: relative;
+                width: 768px;
+                height: 1024px;
+            }
+            
+            video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                
+                width: 768px;
+                height: 1024px;
+                
+                border: 1px dashed red;
+            }
+            
+            
+            
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="js/tween/plugins/bezier-easing.js"></script>
+        <script src="js/tween/TweenMax.min.js"></script>
+        <script src="js/hammer/hammer.min.js"></script>
+        <script>
+            (function() {
+                $(window).load(function() {
+                    
+                    // config
+                    var adStartZ = 0.001; // start the ad closest to the user
+                    var adEndZ = 601; // end the ad just beyond the perspective
+                    var videoStartZ = -10000; // start the video behind the ad
+                    var videoEndZ = 0.001; // end the video close to 0 plane
+                    var perspective = 500; // the perspective of the user
+                    var worldWidth = 768;
+                    
+                    
+                    // setup
+                    var ad = $('.ad');
+                    var video = $('.video');
+                    var world = $('.world');
+                    
+                    var hammer = new Hammer(world[0]);
+                    
+                    TweenLite.set(world, {
+                        transformStyle: "preserve-3d",
+                        perspective: perspective
+                    });
+                    
+                    TweenLite.set(ad, {
+                        x: 0,
+                        y: 0,
+                        z: adStartZ
+                    });
+                    
+                    TweenLite.set(video, {
+                        x: 0,
+                        y: 0,
+                        z: videoStartZ
+                    });
+                    
+                    var curMousePos = { x: 0, y: 0 };
+                    var adMapZ = { min: ad[0]._gsTransform.z, max: adEndZ };
+                    var videoMapZ = { min: video[0]._gsTransform.z, max: videoEndZ };
+                    
+                    var canPanLeft = true;
+                    
+                    
+                    // helpers
+                    function mapMouseToZ(curMouseX, min, max) {
+                        return map(curMouseX, 0.001, worldWidth, min, max);
+                    }
+                    
+                    function mapMouseToOpacity(curMouseX, min, max) {
+                        return map(curMouseX, 0.001, worldWidth, 0, 1);
+                    }
+                    
+                    function map(val, oMin, oMax, nMin, nMax) {
+                        var oRange = (oMax - oMin);
+                        var nRange = (nMax - nMin);
+                        return (((val - oMin) * nRange) / oRange) + nMin;
+                    }
+                    
+                    function draw() {
+                        TweenLite.set(ad, {
+                            z: mapMouseToZ(curMousePos.x, adMapZ.min, adMapZ.max),
+                            opacity: 1 - mapMouseToOpacity(curMousePos.x)
+                        });
+                        
+                        TweenLite.set(video, {
+                            z: mapMouseToZ(curMousePos.x, videoMapZ.min, videoMapZ.max ),
+                            opacity: mapMouseToOpacity(curMousePos.x)
+                        });
+                    }
+                    
+                    
+                    // events
+                    hammer.on('panleft panright', function(evt) {
+                        console.log(evt)
+                        
+                        if(evt.type === 'panleft' && !canPanLeft) {
+                            return;
+                        }
+                        
+                        var finishTo = 0;
+                        
+                        if(!evt.isFinal) {
+                            curMousePos.x = evt.distance;
+                        } else {
+                            if(evt.type === 'panleft') {
+                                finishTo = worldWidth;
+                                canPanLeft = false;
+                            } else {
+                                canPanLeft = true;
+                            }
+                            
+                            TweenLite.to(curMousePos, 1, {
+                                x: finishTo,
+                                ease: new BezierEasing(.25,.0,.80,1)
+                            });
+                        }
+                            
+                    });
+                    
+                    TweenLite.ticker.addEventListener("tick", draw);
+                    
+                    $(window).on('click tap', function(evt) {
+                        console.log(evt);
+                        $('video').each(function(idx) {
+                            console.dir(this);
+                            this.play();
+                        });
+                    });
+                    
+                    hammer.on('tap', function(evt) {
+                        console.log(evt);
+                        $('video').each(function(idx) {
+                            console.dir(this);
+                            this.play();
+                        });
+                    });
+                    
+                });
+            })(jQuery);
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="stage">
+                <div class="world">
+                    <video class="ad" webkit-playsinline muted autoplay>
+                        <source src="videos/test.mp4" type="video/mp4">
+                    </video>
+                    
+                    <video class="video" webkit-playsinline muted autoplay>
+                        <source src="videos/test2.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
