@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>8DAF3333-D03E-46BA-B37F-D68BAB057BAE</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>WiredAd</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>AAFA5BB3E38962C513CADF17EF54B0AD0EDDA825</key>
 		<string>github.com:GSPBetaGroup/AlphaRomeoWiredAd.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>app/WiredAd/WiredAd.xcodeproj/project.xcworkspace</string>
+	<string>app/WiredAd/WiredAd.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>AAFA5BB3E38962C513CADF17EF54B0AD0EDDA825</key>

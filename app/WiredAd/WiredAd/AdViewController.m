@@ -24,7 +24,8 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     // allow the view to play inline (should work cause ipad anyway
-    webView.allowsInlineMediaPlayback = YES;
+    [webView setAllowsInlineMediaPlayback:YES];
+    [webView setMediaPlaybackRequiresUserAction:NO];
     
     // load the url
     indexPath = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"web"];
